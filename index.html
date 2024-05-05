@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic List Rendering</title>
+  
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    function Gallery({ children }) {
+      return (
+        <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:"20px"}} className="gallery">
+          {children}
+        </div>
+      );
+    }
+
+    function Image({ src }) {
+      return <img style={{width:"100%", height:"auto"}} src={src} alt="Gallery Image" />;
+    }
+
+    ReactDOM.render(
+      <Gallery >
+        <Image src="https://thumbs.dreamstime.com/b/beautiful-rain-for…-doi-inthanon-national-park-thailand-36703721.jpg" />
+        <Image src="https://t4.ftcdn.net/jpg/05/47/97/81/360_F_547978128_vqEEUYBr1vcAwfRAqReZXTYtyawpgLcC.jpg" />
+        <Image src="https://img.freepik.com/free-photo/water-fall_335224-987.jpg"/>
+        <Image src="https://assets.hongkiat.com/uploads/nature-photography/landscape.jpg"/>
+      </Gallery>,
+      document.getElementById('root')
+    );
+  </script>
+</body>
+</html>
+
+
